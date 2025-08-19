@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LJW's Portfolio</title>
+  <style>
+
+body {margin: 0;}
+      #portfolio {
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+color: rgb(255, 255, 255); /* 배경에 따라 글자색을 조절해도 됨 */
+}
+    html {scroll-behavior: smooth;}
+
+    /* 메뉴바 */
+    .navbar {
+      background-color: #000;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+.logo{font-weight: bold; margin-left: 10px;}
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-right:50px;
+      font-weight: bold;
+    }
+
+  /* 언더라인 */
+    .underline {
+  width: 250px;       /* 선 길이 */
+  border: none;      /* 기본 hr 선 제거 */
+  border-bottom: 2px solid #fff;  /* 원하는 색과 두께 */
+  margin: 10px auto 30px auto;    /* 위 10px, 아래 30px, 가운데 정렬 */
+}
+
+.underline2 {
+  width: 250px;       /* 선 길이 */
+  border: none;      /* 기본 hr 선 제거 */
+  border-bottom: 2px solid #000000;  /* 원하는 색과 두께 */
+  margin: 10px auto 30px auto;    /* 위 10px, 아래 30px, 가운데 정렬 */
+}
+
+.underline3 {
+  border: none;
+  border-bottom: 1px solid #fff;
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
+
+
+
+
+ /* 영상 영역 */
+.video-container {width: 100%; overflow: hidden;}
+
+.video-container video {width: 100%; height: auto; display: block;}
+
+/* 섹션 스타일 */
+.section {padding: 50px 20px; text-align: center;}
+.white-bg {background-color: #fff; color: #000;}
+.black-bg {background-color: #000; color: #fff;}
+
+.portfolio-section {
+  background-image: url('포폴배경.png');
+  background-size: 1200px auto;      /* 너비 1200px, 높이는 비율 유지 */
+  background-repeat: no-repeat;
+  background-position: center top;   /* 가운데 정렬, 위쪽으로 붙임 */
+  background-attachment: scroll;     /* 기본값. fixed도 가능 */
+}
+
+/* 썸네일 그리드 */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.thumbnail {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 200px; /* 크기 조정 */
+  object-fit: cover; /* 비율 유지하면서 채우기 */
+  display: block;
+  transition: transform 0.3s ease;
+}
+    .thumbnail:hover img {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-size: 1.2rem;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .thumbnail:hover .overlay {
+      opacity: 1;
+    }
+  
+  
+    /*어바웃 미*/
+.about-container {display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;   
+  max-width: 1000px;        /* 중앙 정렬을 위한 너비 제한 */
+  margin: 0 auto;           /* 화면 가운데 정렬 */
+  padding: 0 20px;
+}
+
+.about-info, .about-career {
+  flex: 1;
+  min-width: 250px;
+}
+
+.about-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.about-icon {
+  width: 24px;
+  margin-right: 12px;
+  margin-top: 30px;
+}
+.about-text{
+  text-align: left; 
+  opacity: 0.87; /* 텍스트 좌정렬 */}
+
+.about-text .label {
+  font-weight: normal;
+  margin: 10px;
+line-height: 70px;
+font-size: 25px;}
+
+.about-text .value {
+  margin-left: 15px;
+  opacity: 0.87;
+}
+
+.career-list {
+  margin: 0;
+  padding-left: 10px;
+  line-height: 1.;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+.contact-message {
+  margin-top: 70px;
+  flex: 1;
+  min-width: 300px;
+  font-size: 13px;
+  line-height: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  color: #fff;
+  text-align: right; /* 모든 텍스트를 오른쪽 정렬 */
+}
+
+.contact-info h3 {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: flex-end;  /* 오른쪽 끝으로 정렬 */
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-icon {
+  width: 20px;
+  margin-left: 10px; /* 아이콘을 오른쪽에 붙이고 싶다면 margin-right 대신 이걸 씀 */
+  order: 2; /* 아이콘을 오른쪽에 위치시키기 */
+}
+
+.contact-item span {
+  order: 1; /* 텍스트를 왼쪽에 */
+}
+#contact.section {
+  padding-bottom: 0px;
+}
+
+  </style>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/ungveloper/web-fonts/SCoreDream/font-face.css" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/ungveloper/web-fonts/SCoreDream/font-family.css" />
+</head>
+
+
+
+<body>
+
+  <!-- 메뉴바 -->
+  <nav class="navbar">
+    <div class="logo">LJW's Portfolio</div>
+    <div class="nav-links">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#aboutme">About me</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+  
+  
+
+  <!-- 영상 -->
+  <section id="intro" style="position: relative; height: 100vh; overflow: hidden;">
+    <video autoplay muted loop playsinline style="position: absolute; width: 100%; height: 100%; object-fit: cover;">
+      <source src="웹페이지 영상.mp4" type="video/mp4">
+    </video>
+     <!-- 어두운 오버레이 -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>
+
+  <!-- 텍스트 컨텐츠 -->
+  <div style="position: relative; z-index: 1; color: white; padding: 80px 0px 0 20px; text-align: left; max-width: 1000px; margin: 400px auto;">
+    <h1 style="font-size: 4rem; line-height: 80px; margin-bottom: 0px;">
+      <span style="color: orangered;">Jaewoo’s</span><br />
+      <span style="color: white;">Portfolio</span>
+    </h1>
+
+    <p style="font-size: 1.2rem; line-height: 1.5; max-width: 600px;"> 안녕하세요,<br />전달력 있는 영상을 만드는 이재우입니다.</p>
+  </div>
+</section>
+
+  <!-- 섹션 1: 포트폴리오 -->
+  <section id="portfolio" class="section portfolio-section">
+    <h2>PORTFOLIO</h2>
+    <hr class="underline" />
+
+<!-- 모든 썸네일 1~5 -->
+<div class="portfolio-grid">
+  <a href="과천문화재단.html" target="_blank" class="thumbnail">
+    <img src="thumb1.png" alt="프로젝트 1">
+    <div class="overlay">과천문화재단</div>
+  </a>
+  <a href="중앙박물관.html" target="_blank" class="thumbnail">
+    <img src="thumb2.png" alt="프로젝트 2">
+    <div class="overlay">국립중앙박물관</div>
+  </a>
+  <a href="국립전주박물관.html" target="_blank" class="thumbnail">
+    <img src="thumb3.png" alt="프로젝트 3">
+    <div class="overlay">국립전주박물관</div>
+  </a>
+  <a href="국립익산박물관.html" target="_blank" class="thumbnail">
+    <img src="thumb4.png" alt="프로젝트 4">
+    <div class="overlay">국립익산박물관</div>
+  </a>
+  <a href="개인작업물.html" target="_blank" class="thumbnail">
+    <img src="thumb5.png" alt="프로젝트 5">
+    <div class="overlay">개인작업물</div>
+  </a>
+</div>
+</section>
+
+  <!-- 섹션 2: 스킬 -->
+  <section id="skills" class="section white-bg">
+    <h2>SKILLS</h2>
+    <hr class="underline2" />
+    <img src="아이콘.png" alt="프로젝트 5" width="500px">
+    
+  </section>
+
+  <!-- 섹션 3: 어바웃미 -->
+  <section id="aboutme" class="section black-bg">
+    <h2>ABOUT ME</h2>
+    <hr class="underline" />
+    
+    <div class="about-container">
+      <!-- 왼쪽 정보 -->
+      <div class="about-info">
+        <div class="about-item">
+          <img src="사람아이콘.png" alt="이름 아이콘" class="about-icon">
+          <div class="about-text">
+            <p class="label">이름</p> <br>
+            <p class="value">이재우</p>
+          </div>
+        </div>
+        <div class="about-item">
+          <img src="위치아이콘.png" alt="위치 아이콘" class="about-icon">
+          <div class="about-text">
+            <p class="label">위치</p> <br>
+            <p class="value">경기도 고양시</p>
+          </div>
+        </div>
+        <div class="about-item">
+          <img src="달력아이콘.png" alt="생년월일 아이콘" class="about-icon">
+          <div class="about-text">
+            <p class="label">생년월일</p> <br>
+            <p class="value">2001.09.27.</p>
+            
+          </div>
+        </div>
+      </div>
+  
+      <!-- 오른쪽 경력 -->
+      <div class="about-career">
+        <div class="about-item">
+          <img src="경력아이콘.png" alt="경력 아이콘" class="about-icon">
+          <div class="about-text">
+            <p class="label">경력</p> <br>
+            <ul class="career-list">
+              <li>과천문화재단 2025 우리동네 합창축제 제작</li> <br>
+              <li>국립중앙박물관 선사고대관 리모델링 영상 11종 제작</li><br>
+              <li>국립중앙박물관 풍납토성 정보 영상 제작</li><br>
+              <li>서울시 국악박물관 신기술융합콘텐츠 영상 제작</li><br>
+              <li>국립전주박물관 특별전 전시영상 제작</li><br>
+              <li>국립익산박물관 특별전 전시영상 제작</li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 섹션 4: 컨텍 -->
+  <section id="contact" class="section black-bg">
+    <hr class="underline3" />
+    <div class="contact-container">
+      <!-- 왼쪽 설명 -->
+      <div class="contact-message">
+        <p>함께 일할 영상 제작자를 찾고 계신가요?<br />
+        저에게 궁금한 점이 있으시다면 연락해 주세요 :)</p>
+        
+      </div>
+  
+      
+      <!-- 오른쪽 연락처 -->
+
+      <div class="contact-info">
+        
+        <h3>CONTACT</h3>
+        <div class="contact-item">
+          <img src="메일아이콘.png" alt="이메일 아이콘" class="contact-icon" />
+          <span>j-wooo@daum.net</span>
+        </div>
+        <div class="contact-item">
+          <img src="전화아이콘.png" alt="전화 아이콘" class="contact-icon" />
+          <span>010.8039.6230</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

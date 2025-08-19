@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LJW's Portfolio</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'SCoreDream', sans-serif;
+      background-color: #000; /* 전체 배경 검정 */
+    }
+
+    .navbar {
+      background-color: #000;
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .video-section {
+      background-color: #000;
+      min-height: calc(100vh - 80px); /* 화면 전체 높이 - 네비게이션 높이 */
+      padding: 4rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-container {
+      width: 80%;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 1.5rem;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .description {
+      color: white;
+      font-size: 1rem;
+      text-align: center;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+  </style>
+
+  <!-- SCoreDream 폰트 -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/ungveloper/web-fonts/SCoreDream/font-face.css" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/ungveloper/web-fonts/SCoreDream/font-family.css" />
+</head>
+<body>
+
+  <!-- 네비게이션 바 -->
+  <nav class="navbar">
+    <div class="logo">LJW's Portfolio</div>
+  
+  </nav>
+
+  <!-- 영상 섹션 -->
+  <section class="video-section">
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/pr0EpDyNbEo?si=1CEp1k9TEfFuOhaD" allowfullscreen></iframe>
+    </div>
+    <div class="description">
+      과천문화재단 합창축제 - 촬영/편집
+    </div>
+  </section>
+
+</body>
+</html>
